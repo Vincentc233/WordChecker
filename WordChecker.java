@@ -7,4 +7,5 @@ public class WordChecker {
     public WordChecker()
     {
         wordlist = new ArrayList<String>();
+    }
 }

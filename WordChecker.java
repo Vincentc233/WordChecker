@@ -5,12 +5,12 @@ import java.util.ArrayList;
 
         public WordChecker()
         {
-            wordList = list;  
+            wordList = new ArrayList<String>();   
         }
 
         public WordChecker(ArrayList<String> list)
         {
-            wordList = new ArrayList<String>();
+            wordList = list; 
         }
         /**
          * Returns true if each element of wordList (except the first) contains the
@@ -25,8 +25,12 @@ import java.util.ArrayList;
             {
                 String after = wordList.get(i);
                 String before = wordList.get(i - 1);
-                if (after.indexOf(before) < 0) return false;
+                if (after.indexOf(before) < 0) {
+                    return false;
+                }
+                
             }
+            return true;
         }
         {
             /* to be implemented in part (a) */
@@ -40,6 +44,14 @@ import java.util.ArrayList;
          * Items appear in the returned list in the same order as they appear in
          * wordList.
          */
-        // public ArrayList<String> createList(String target) {
+        public ArrayList<String> createList(String target) {
+            ArrayList<String> list = new ArrayList<String>();
+            for(String s: wordList){
+                if(s.indexOf(target)==0){
+                    list.add(s.substring(target.length()));
+                }
+            }
+            return list;
             /* to be implemented in part (b) } */ 
+        }
     }
